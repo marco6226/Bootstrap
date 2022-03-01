@@ -6,6 +6,7 @@ import { LoginComponent } from './modulos/core/components/login/login.component'
 import { AuthGuardService } from './modulos/core/auth-guard.service';
 import { InicioComponent } from './modulos/core/components/inicio/inicio.component';
 import { HomeComponent } from './modulos/core/components/home/home.component';
+import { DashboardModule } from './modulos/core/components/dashboard/dashboard.module';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,7 +19,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
-    CoreModule
+    CoreModule,
   ],
   exports: [RouterModule],
   providers: []

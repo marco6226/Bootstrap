@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ToastModule} from 'primeng/toast';
+import {MessageService} from 'primeng/api';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 const modules = [
-  ToastModule
+  ToastModule,
+  BrowserAnimationsModule
 ];
 
 @NgModule({
@@ -15,6 +18,9 @@ const modules = [
   ],
   exports:[
     modules
+  ],
+  providers: [
+    MessageService
   ]
 })
 export class PrimengModule { }

@@ -3,15 +3,21 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
+import { ComunModule } from 'src/app/modulos/comun/comun.module';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    NavBarComponent,
+    MenuBarComponent,
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    ComunModule
   ]
 })
 export class DashboardModule { }

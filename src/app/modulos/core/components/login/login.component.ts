@@ -6,11 +6,12 @@ import { AuthGuardService } from '../../auth-guard.service';
 import { AuthService } from '../../auth.service';
 import {MessageService} from 'primeng/api';
 import { MensajeUsuario } from '../../entities/mensaje-usuario';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
 		private AuthGuardService: AuthGuardService,
+    private snackBar: MatSnackBar
   ) { 
     this.subscription = this.authService.getLoginObservable().subscribe(visible => this.setVisible(visible));
     this.formLogin = fb.group({
@@ -90,7 +92,7 @@ export class LoginComponent implements OnInit {
             let msg: MensajeUsuario = err.error;
             switch (err.status) {
                 case 403:
-                    this.messageService.add({severity:'warn', summary: 'CREDENCIALES INCORRECTAS', detail: 'El usuario o contraseña especificada no son correctas'});
+                    this.messageService.add({severity:'error', summary: 'CREDENCIALES INCORRECTAS', detail: 'El usuario o contraseña especificada no son correctas'});
                     // this.msgs.push({ severity: 'warn', summary: 'CREDENCIALES INCORRECTAS', detail: 'El usuario o contraseña especificada no son correctas' });
                     break;
                 case 401:                        
@@ -133,5 +135,4 @@ export class LoginComponent implements OnInit {
         }
     }, 1000);
   }
-
 }

@@ -1,0 +1,337 @@
+ng g component pageNotFound
+ng generate module modulos/admin --module app --routing true --route modulos/admin
+    ng g component modulos/admin/components/perfil
+    ng g component modulos/admin/components/permisos
+    ng g component modulos/admin/components/usuario
+    ng g service modulos/admin/services/perfil
+    ng g service modulos/admin/services/permiso
+    ng g service modulos/admin/services/recurso
+    ng g service modulos/admin/services/usuario
+ng g module modulos/ado/documentos  ***
+    ng g component modulos/ado/components/documentoForm  ***
+    ng g component modulos/ado/components/documentoSelector  ***
+    ng g component modulos/ado/components/documentoUpload  ***
+    ng g component modulos/ado/components/gestionDocumental  ***
+    ng g interface modulos/ado/entities/directorio  ***
+    ng g interface modulos/ado/entities/documento  ***
+    ng g service modulos/ado/services/directorio  ***
+ng g module modulos/aus
+    ng g component modulos/aus/components/consultarAusentismo
+    ng g component modulos/aus/components/reporteAusentismo
+    ng g class modulos/aus/entities/causaAusentismo
+    ng g class modulos/aus/entities/reporteAusentismo
+    ng g service modulos/aus/services/causaAusentismo
+    ng g service modulos/aus/services/reporteAusentismo
+ng g module modulos/ayuda
+    ng g interface modulos/ayuda/components/entities/manual
+    ng g component modulos/ayuda/components/manuales
+    ng g service modulos/ayuda/services/manual
+ng g module modulos/comun ***
+    ng g module modulos/comun/components/material ***
+    ng g class modulos/comun/fileUtils
+    ng g class modulos/comun/util    
+    ng g component modulos/comun/components/cambioPasswd
+    ng g component modulos/comun/components/cieSelector
+    ng g component modulos/comun/components/ciudadSelector
+    ng g component modulos/comun/components/customRadioButton
+    ng g component modulos/comun/components/dataNotFound
+    ng g component modulos/comun/components/editorHtml
+    ng g component modulos/comun/components/empleadoSelector
+    ng g component modulos/comun/components/empresaDash
+    ng g component modulos/comun/components/formulario
+    ng g component modulos/comun/components/formularioConstructor
+    ng g component modulos/comun/components/galeria
+    ng g component modulos/comun/components/idleTimeout
+    ng g component modulos/comun/components/layout
+        ng g component modulos/comun/components/layout/layoutContent
+        ng g component modulos/comun/components/layout/layoutMenu
+    ng g component modulos/comun/components/mensajeUsuario
+    ng g component modulos/comun/components/panelFlotante
+    ng g component modulos/comun/components/rangoFechaSelector
+    ng g component modulos/comun/components/selectorRangoFechas
+    ng g component modulos/comun/components/visorPdf
+    ng g interface modulos/comun/entities/afp   ***
+    ng g interface modulos/comun/entities/arl   ***
+    ng g interface modulos/comun/entities/campos   ***
+    ng g interface modulos/comun/entities/ccf   ***
+    ng g interface modulos/comun/entities/cie   ***
+    ng g interface modulos/comun/entities/ciiu   ***
+    ng g interface modulos/comun/entities/ciudad   ***
+    ng g interface modulos/comun/entities/comunEntity   ***
+    ng g interface modulos/comun/entities/configuracionGeneral   ***
+    ng g interface modulos/comun/entities/departamento   ***
+    ng g interface modulos/comun/entities/enumeracion   ***
+    ng g interface modulos/comun/entities/eps   ***
+    ng g interface modulos/comun/entities/formulario   ***
+    ng g interface modulos/comun/entities/mensajeUsuario   ***
+    ng g interface modulos/comun/entities/prepagadas   ***
+    ng g interface modulos/comun/entities/proveedor   ***
+    ng g interface modulos/comun/entities/respuestaCampo   ***
+    ng g pipe modulos/comun/pipes/fileSize
+    ng g pipe modulos/comun/pipes/safeBypass
+    ng g service modulos/comun/services/cambioPasswd
+    ng g service modulos/comun/services/cie
+    ng g service modulos/comun/services/ciudad
+    ng g service modulos/comun/services/comun
+    ng g service modulos/comun/services/configuracionGeneral
+    ng g service modulos/comun/services/enumeraciones
+    ng g service modulos/comun/services/htmlsanitizer
+    ng g service modulos/comun/services/mensajeUsuario
+    ng g directive modulos/comun/directives/configuracionGeneral
+    ng g directive modulos/comun/directives/tienePermiso
+    ng g validator modulos/comun/validators/passwordValidator
+ng g module modulos/cop
+    ng g component modulos/cop/components/consultaActas
+    ng g class modulos/cop/entities/acta
+    ng g service modulos/cop/services/acta
+ng g module modulos/core ***
+    ng g service modulos/core/auth ***
+    ng g service modulos/core/authGuard
+    ng g component modulos/core/components/areaSelectorind
+    ng g component modulos/core/components/contacto
+    ng g component modulos/core/components/fileUploader
+    ng g component modulos/core/components/home
+    ng g module modulos/core/components/home
+    ng g component modulos/core/components/inicio
+    ng g component modulos/core/components/login ***
+    ng g component modulos/core/components/terminosCondiciones ***
+    ng g class modulos/core/entities/consecuencias ***
+    ng g class modulos/core/entities/filterQuery ***
+    ng g class modulos/core/entities/filter ***
+    ng g class modulos/core/entities/mensajeUsuario ***
+    ng g class modulos/core/entities/nivelRiesgo ***
+    ng g class modulos/core/entities/probabilidad ***
+    ng g interface modulos/core/entities/session ***
+    ng g class modulos/core/entities/sistemaNivelRiesgo
+    ng g enum modulos/core/enums/enumeraciones
+    ng g service modulos/core/services/parametroNavegacion
+    ng g service modulos/core/services/serviceCrud
+    ng g service modulos/core/services/sistemaNivelRiesgo
+    ng g service modulos/core/services/sesion ***
+    ng g interceptor modulos/core/services/httpAuth
+ng g module modulos/ctr
+    ng g component modulos/ctr/components/adminContratistas
+    ng g component modulos/ctr/components/seguimientoContratistas
+ng generate module modulos/empresa --module app --routing true --route modulos/empresa ***
+    ng g component modulos/empresa/components/area
+        ng g component modulos/empresa/components/area/areaSelectorind
+        ng g component modulos/empresa/components/area/multiAreaSelectorind
+    ng g component modulos/empresa/components/cargo
+    ng g component modulos/empresa/components/cargueDatos
+    ng g component modulos/empresa/components/competencia
+    ng g component modulos/empresa/components/contextoOrganizacion
+    ng g component modulos/empresa/components/empleado
+        ng g component modulos/empresa/components/empleado/documentosEmpleado
+        ng g component modulos/empresa/components/empleado/empleadoForm
+        ng g component modulos/empresa/components/empleado/horasExtra
+        ng g component modulos/empresa/components/empleado/jornadaForm
+    ng g component modulos/empresa/components/emplresaAdmin
+    ng g component modulos/empresa/components/evaluacionDesempeno
+    ng g component modulos/empresa/components/evaluacionDesempenoForm
+    ng g component modulos/empresa/components/hht
+    ng g component modulos/empresa/components/tipoArea
+    ng g component modulos/empresa/components/usuarioPreferencias
+    ng g interface modulos/empresa/entities/area    ***
+    ng g interface modulos/empresa/entities/calificacionDesempeno    ***
+    ng g interface modulos/empresa/entities/cargo    ***
+    ng g interface modulos/empresa/entities/competencia    ***
+    ng g interface modulos/empresa/entities/configuracionJornada    ***
+    ng g interface modulos/empresa/entities/contextoOrganizacion    ***
+    ng g interface modulos/empresa/entities/empleado    ***
+    ng g interface modulos/empresa/entities/empresa    ***
+    ng g interface modulos/empresa/entities/evaluacionDesempeno    ***
+    ng g interface modulos/empresa/entities/hht    ***
+    ng g interface modulos/empresa/entities/horasExtra    ***
+    ng g interface modulos/empresa/entities/jornada    ***
+    ng g interface modulos/empresa/entities/perfil    ***
+    ng g interface modulos/empresa/entities/permiso    ***
+    ng g interface modulos/empresa/entities/recurso    ***
+    ng g interface modulos/empresa/entities/sede    ***
+    ng g interface modulos/empresa/entities/tipoArea    ***
+    ng g interface modulos/empresa/entities/tipoSede    ***
+    ng g interface modulos/empresa/entities/usuarioEmpresa    ***
+    ng g interface modulos/empresa/entities/usuario    ***
+    ng g service modulos/empresa/services/area    ***
+    ng g service modulos/empresa/services/cargo    ***
+    ng g service modulos/empresa/services/competencia    ***
+    ng g service modulos/empresa/services/contextoOrganizacion    ***
+    ng g service modulos/empresa/services/empleado    ***
+    ng g service modulos/empresa/services/empresa    ***
+    ng g service modulos/empresa/services/evaluacionDesempeno    ***
+    ng g service modulos/empresa/services/hht    ***
+    ng g service modulos/empresa/services/horasExtra    ***
+    ng g service modulos/empresa/services/sede    ***
+    ng g service modulos/empresa/services/tipoArea    ***
+ng g module modulos/ind
+    ng g component modulos/ind/components/consultarTablero
+    ng g component modulos/ind/components/elaboracionTablero
+    ng g component modulos/ind/components/indicadoresAusentismo
+    ng g component modulos/ind/components/indicadoresEmp
+    ng g component modulos/ind/components/indicadoresInp
+    ng g component modulos/ind/components/indicadoresRai
+    ng g component modulos/ind/components/indicadoresSge
+    ng g component modulos/ind/components/panelGrafica
+    ng g interface modulos/ind/entities/indicadorAusentismo
+    ng g interface modulos/ind/entities/indicadorSge
+    ng g interface modulos/ind/entities/indicador
+    ng g interface modulos/ind/entities/modeloGrafica
+    ng g interface modulos/ind/entities/tablero
+    ng g interface modulos/ind/entities/kpi
+    ng g service modulos/ind/services/indicadorAusentismo
+    ng g service modulos/ind/services/indicadorEmp
+    ng g service modulos/ind/services/indicadorSge
+    ng g service modulos/ind/services/indicador
+    ng g service modulos/ind/services/modeloGrafica
+    ng g service modulos/ind/services/tablero
+ng generate module modulos/inspecciones --module app --routing true --route modulos/inspecciones
+    ng g component modulos/inspecciones/components/consultaInspecciones
+    ng g component modulos/inspecciones/components/elaboracionInspecciones
+    ng g component modulos/inspecciones/components/elaboracionLista
+    ng g component modulos/inspecciones/components/listaInspeccionForm
+    ng g component modulos/inspecciones/components/listaInspeccionForm/elementoInspeccionNode
+    ng g component modulos/inspecciones/components/listaInspeccion
+    ng g component modulos/inspecciones/components/programacion
+    ng g interface modulos/inspecciones/entities/calificacion
+    ng g interface modulos/inspecciones/entities/elementoInspeccion
+    ng g interface modulos/inspecciones/entities/inspeccion
+    ng g interface modulos/inspecciones/entities/listaInspeccion
+    ng g interface modulos/inspecciones/entities/listaInspeccionPk
+    ng g interface modulos/inspecciones/entities/opcionCalificacion
+    ng g interface modulos/inspecciones/entities/programacion
+    ng g interface modulos/inspecciones/entities/tipoHallazgo
+    ng g service modulos/inspecciones/services/inspeccion
+    ng g service modulos/inspecciones/services/listaInspeccion
+    ng g service modulos/inspecciones/services/programacion
+    ng g service modulos/inspecciones/services/tipoHallazgo
+ng g module modulos/ipr
+    ng g component modulos/ipr/components/consultaIpecr
+    ng g component modulos/ipr/components/formularioIpecr
+    ng g component modulos/ipr/components/formularioPeligro
+    ng g component modulos/ipr/components/parametrizacionPeligros
+    ng g interface modulos/ipr/entities/control
+    ng g interface modulos/ipr/entities/efecto
+    ng g interface modulos/ipr/entities/fuente
+    ng g interface modulos/ipr/entities/ipecr
+    ng g interface modulos/ipr/entities/participanteIpecr
+    ng g interface modulos/ipr/entities/peligroIpecr
+    ng g interface modulos/ipr/entities/peligro
+    ng g interface modulos/ipr/entities/tipoControl
+    ng g interface modulos/ipr/entities/tipoPeligro
+    ng g service modulos/ipr/services/control
+    ng g service modulos/ipr/services/efecto
+    ng g service modulos/ipr/services/fuente
+    ng g service modulos/ipr/services/ipecr
+    ng g service modulos/ipr/services/participanteIpecr
+    ng g service modulos/ipr/services/peligroIpecr
+    ng g service modulos/ipr/services/peligro
+    ng g service modulos/ipr/services/tipoControl
+    ng g service modulos/ipr/services/tipoPeligro
+ng generate module modulos/observaciones --module app --routing true --route modulos/observaciones
+    ng g component modulos/observaciones/components/consultaObservaciones
+    ng g component modulos/observaciones/components/formularioTarjeta
+    ng g component modulos/observaciones/components/gestionObservaciones
+    ng g component modulos/observaciones/components/registroObservaciones
+    ng g component modulos/observaciones/components/formularioTarjeta
+    ng g interface modulos/observaciones/entities/implicacion
+    ng g interface modulos/observaciones/entities/observacion
+    ng g interface modulos/observaciones/entities/tarjeta
+    ng g service modulos/observaciones/services/observacion
+    ng g service modulos/observaciones/services/tarjeta
+ng g module modulos/rai
+    ng g component modulos/rai/components/cargarArchivo
+    ng g component modulos/rai/components/consultaReportes
+    ng g component modulos/rai/components/registroReportes
+    ng g component modulos/rai/components/registroReportes/formularioAccidente
+    ng g component modulos/rai/components/registroReportes/formularioIncidente
+    ng g interface modulos/rai/entities/reporte
+    ng g interface modulos/rai/entities/testigoReporte
+    ng g enum modulos/rai/enumeraciones/reporteEnumeraciones
+    ng g service modulos/rai/services/reporte
+ng g module modulos/scm
+    ng g component modulos/scm/components/diagnosticoForm
+    ng g component modulos/scm/components/formularioScm
+    ng g component modulos/scm/components/logmodal
+    ng g component modulos/scm/components/pcl
+    ng g component modulos/scm/components/recomendationsform
+    ng g component modulos/scm/components/scm
+    ng g component modulos/scm/components/scmpermisos
+    ng g interface modulos/scm/entities/epsOrArl
+    ng g interface modulos/scm/entities/tipoTratamiento
+    ng g service modulos/scm/services/casosMedicos
+ng generate module modulos/sec --module app --routing true --route modulos/sec
+    ng g component modulos/sec/components/analisisCostos
+    ng g component modulos/sec/components/analisisDesviacion
+    ng g component modulos/sec/components/asignacionTareas
+    ng g component modulos/sec/components/consultaAnalisis
+    ng g component modulos/sec/components/consultaDesviacion
+    ng g component modulos/sec/components/consultaDesviacionInspeccion
+    ng g component modulos/sec/components/documentosAnalisisDesviacion
+    ng g component modulos/sec/components/gestionTareas
+    ng g component modulos/sec/components/misTareas
+    ng g component modulos/sec/components/seguimientosTareas
+    ng g component modulos/sec/components/tareas
+    ng g component modulos/sec/components/verificacionTarea
+    ng g interface modulos/sec/entities/analisisCostos
+    ng g interface modulos/sec/entities/analisisDesviacion
+    ng g interface modulos/sec/entities/causaInmediata
+    ng g interface modulos/sec/entities/causaRaiz
+    ng g interface modulos/sec/entities/desviacion
+    ng g interface modulos/sec/entities/jerarquia
+    ng g interface modulos/sec/entities/sistemaCausaAdministrativa
+    ng g interface modulos/sec/entities/sistemaCausaInmediata
+    ng g interface modulos/sec/entities/sistemaCausaRaiz
+    ng g interface modulos/sec/entities/tarea
+    ng g service modulos/sec/services/analisisDesviacion
+    ng g service modulos/sec/services/desviacion
+    ng g service modulos/sec/services/seguimientos
+    ng g service modulos/sec/services/sistemaCausaAdministrativa
+    ng g service modulos/sec/services/sistemaCausaInmediata
+    ng g service modulos/sec/services/sistemaCausaRaiz
+    ng g service modulos/sec/services/tarea
+    ng g pipe modulos/sec/utils/pipes/capitalize
+ng generate module modulos/sg --module app --routing true --route modulos/sg
+    ng g component modulos/sg/components/consultarEvaluacion
+    ng g component modulos/sg/components/desviacionesEvaluacion
+    ng g component modulos/sg/components/evaluacion
+    ng g component modulos/sg/components/sgeForm
+        ng g component modulos/sg/components/sgeForm/sgeCompositor
+        ng g component modulos/sg/components/sgeForm/sgeNodo
+    ng g component modulos/sg/components/sistemaGestion
+    ng g interface modulos/sg/entities/elemento
+    ng g interface modulos/sg/entities/evaluacion
+    ng g interface modulos/sg/entities/indicadoresElemento
+    ng g interface modulos/sg/entities/IndicadoresEvaluacion
+    ng g interface modulos/sg/entities/opcionRespuesta
+    ng g interface modulos/sg/entities/reporteSge
+    ng g interface modulos/sg/entities/respuesta
+    ng g interface modulos/sg/entities/sistemaGestionPk
+    ng g interface modulos/sg/entities/sistemaGestion
+    ng g service modulos/sg/services/elemento
+    ng g service modulos/sg/services/evaluacion
+    ng g service modulos/sg/services/reporteSge
+    ng g service modulos/sg/services/respuesta
+    ng g service modulos/sg/services/sistemaGestion
+
+
+
+----- Dependencias
+
+npm install
+
+npm install primeng --save
+npm install primeicons --save
+npm install @angular/animations --save
+npm install --save rxjs-compat 
+npm install @types/crypto-js
+npm i crypto-js
+npm install angular2-jwt --force
+npm i ng-circle-progress
+npm install moment
+
+---V3
+npm install
+
+npm install bootstrap
+
+npm i crypto-js
+
