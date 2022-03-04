@@ -7666,6 +7666,9 @@ textarea.form-control-lg {
 .max-height-vh-100 {
   max-height: 100vh !important; }
 
+.max-height-vh-120 {
+  max-height: 200vh !important; }
+
 .min-height-100 {
   min-height: 100px !important; }
 
@@ -15145,7 +15148,7 @@ hr.horizontal {
   .g-sidenav-show.rtl .sidenav {
     transform: translateX(17.125rem); }
   .g-sidenav-show:not(.rtl) .sidenav {
-    transform: translateX(-17.125rem); }
+    transform: translateX(-16.125rem); }
   .g-sidenav-show .sidenav.fixed-start + .main-content {
     margin-left: 0 !important; }
   .g-sidenav-show.g-sidenav-pinned .sidenav {

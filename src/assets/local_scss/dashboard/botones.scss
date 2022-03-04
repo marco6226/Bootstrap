@@ -1,0 +1,25 @@
+button{
+    height: 42px !important;
+    width: 127px !important;
+    z-index: 10;
+    color: var(--white)!important;
+}
+
+.button-round{
+    border-radius: 50px !important;
+}
+
+.button-orange{
+    background: var(--orange);
+}
+
+mat-form-field mat-label{
+// color: var(--white);
+}
+
+button:disabled,
+button[disabled]{
+//   border: 1px solid #999999;
+  background-color: var(--orange-ligth);
+  color: #666666;
+}
