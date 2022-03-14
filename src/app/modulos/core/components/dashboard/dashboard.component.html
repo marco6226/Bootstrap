@@ -1,275 +1,284 @@
-<!-- <body class="g-sidenav-show  bg-gray-200">
-    <app-menu-bar class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main"></app-menu-bar>
-    <app-nav-bar class="main-content position-relative max-height-vh-100 h-100 border-radius-lg "></app-nav-bar>
-</body> -->
 
-<!-- <header class="g-sidenav-show  bg-gray-200">
-    <app-menu-bar></app-menu-bar>
-    <app-nav-bar></app-nav-bar>
-</header> -->
+<header>
+    
 
-<!-- <header>
   <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <!-- <button mat-icon-button aria-label="Example icon-button with menu icon">
+      <mat-icon>account_circle</mat-icon>
+    </button> -->
+    <button mat-icon-button aria-label="Example icon-button with menu icon" (click)="irHome()">
+      <!-- <mat-icon>account_circle</mat-icon> -->
+      <img src="../../../../../../../assets/img/logos/logoRedondo.svg" alt="">
+    </button>
+
+    <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <span>Seguimiento Casos Médicos</span>
+    <!-- <span class="example-spacer"></span> -->
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
       <mat-icon>share</mat-icon>
-    </button>
+    </button> -->
   </mat-toolbar>
+
+
 </header>
 
-<body class="probe">
-  <div class="card">
-    <div class="card-container blue-container flex align-items-center justify-content-start">
-        <div >
-          <p-panelMenu [model]="items" [style]="{'width':'300px'}"></p-panelMenu>
+<main style="background: rgb(120, 144, 224);    height: 93%;
+position: fixed;">
+
+  <!-- <div style="    width: 100%;
+  height: 92%;
+  background: red;
+  position: fixed;">
+
+  </div> -->
+  <mat-drawer-container class="example-container" hasBackdrop="false" autosize>
+     <mat-drawer #drawer class="example-sidenav" mode="over">
+      <header>SIGESS</header>
+      <div style="height: 0.3rem; width: 100%; background: var(--white); margin-bottom: 0.6rem;"></div>
+      
+      
+
+      <!-- <mat-button-toggle-group vertical="true" name="fontStyle" aria-label="Font Style" >
+        <mat-button-toggle value="dashboard" (click)="dashboard()">Dashboard</mat-button-toggle>
+      
+        <mat-button-toggle value="administracion" (click)="administracion()">Administración</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showAdministracion">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">Perfiles</mat-button-toggle>
+              <mat-button-toggle class="submenu">Permisos</mat-button-toggle>
+              <mat-button-toggle class="submenu">Usuarios</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="empresa" (click)="empresa()">Empresa</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showEmpresa">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">Información Empresa</mat-button-toggle>
+              <mat-button-toggle class="submenu">Contexto Organización</mat-button-toggle>
+              <mat-button-toggle class="submenu">Tipos área</mat-button-toggle>
+              <mat-button-toggle class="submenu">Organización</mat-button-toggle>
+              <mat-button-toggle class="submenu">Cargos</mat-button-toggle>
+              <mat-button-toggle class="submenu">Talento humano</mat-button-toggle>
+              <mat-button-toggle class="submenu">Evaluación desempeño</mat-button-toggle>
+              <mat-button-toggle class="submenu">Cargue datos</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="contratistas" (click)="contratistas()">Contratistas</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showContratistas">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">Administración</mat-button-toggle>
+              <mat-button-toggle class="submenu">Seguimiento</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="seguimientoMedicos" (click)="seguimientoMedicos()">Seguimiento Casos Médicos</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showMedicos">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">Creación de seguimiento caso</mat-button-toggle>
+              <mat-button-toggle class="submenu">listado de seguimientos</mat-button-toggle>
+              <mat-button-toggle class="submenu">Permisos</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="autoevaluacion" (click)="autoevaluacion()">Autoevaluación</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showAutoevaluacion">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">Elaboración SGE</mat-button-toggle>
+              <mat-button-toggle class="submenu">Sistema de Gestión</mat-button-toggle>
+              <mat-button-toggle class="submenu">Consulta Evaluación</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="IPECR" (click)="IPECR()">IPECR</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showIPECR">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">Para</mat-button-toggle>
+              <mat-button-toggle class="submenu">#2</mat-button-toggle>
+              <mat-button-toggle class="submenu">#3</mat-button-toggle>
+              <mat-button-toggle class="submenu">#4</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="inspeccion" (click)="inspeccion()">Inspección</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showInspeccion">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">#1</mat-button-toggle>
+              <mat-button-toggle class="submenu">#2</mat-button-toggle>
+              <mat-button-toggle class="submenu">#3</mat-button-toggle>
+              <mat-button-toggle class="submenu">#4</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="condiciones" (click)="condiciones()">Reporte Condiciones</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showCondiciones">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">#1</mat-button-toggle>
+              <mat-button-toggle class="submenu">#2</mat-button-toggle>
+              <mat-button-toggle class="submenu">#3</mat-button-toggle>
+              <mat-button-toggle class="submenu">#4</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="reporte" (click)="reporte()">Reporte A/I</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showReporte">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">#1</mat-button-toggle>
+              <mat-button-toggle class="submenu">#2</mat-button-toggle>
+              <mat-button-toggle class="submenu">#3</mat-button-toggle>
+              <mat-button-toggle class="submenu">#4</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="ausentismo" (click)="ausentismo()">Ausentismo</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showAusentismo">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">#1</mat-button-toggle>
+              <mat-button-toggle class="submenu">#2</mat-button-toggle>
+              <mat-button-toggle class="submenu">#3</mat-button-toggle>
+              <mat-button-toggle class="submenu">#4</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="documentada" (click)="documentada()">Información Documentada</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showDocumentada">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">#1</mat-button-toggle>
+              <mat-button-toggle class="submenu">#2</mat-button-toggle>
+              <mat-button-toggle class="submenu">#3</mat-button-toggle>
+              <mat-button-toggle class="submenu">#4</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="seguimiento" (click)="seguimiento()">Seguimiento y Control</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showSeguimiento">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">#1</mat-button-toggle>
+              <mat-button-toggle class="submenu">#2</mat-button-toggle>
+              <mat-button-toggle class="submenu">#3</mat-button-toggle>
+              <mat-button-toggle class="submenu">#4</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="indicadores" (click)="indicadores()">Indicadores</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showIndicadores">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">#1</mat-button-toggle>
+              <mat-button-toggle class="submenu">#2</mat-button-toggle>
+              <mat-button-toggle class="submenu">#3</mat-button-toggle>
+              <mat-button-toggle class="submenu">#4</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+
+        <mat-button-toggle value="actas" (click)="actas()">Actas COPASST</mat-button-toggle>
+        <div class="containerDrawer" *ngIf="showActas">
+          <div>
+            <mat-button-toggle-group vertical="true">
+              <mat-button-toggle class="submenu">#1</mat-button-toggle>
+              <mat-button-toggle class="submenu">#2</mat-button-toggle>
+              <mat-button-toggle class="submenu">#3</mat-button-toggle>
+              <mat-button-toggle class="submenu">#4</mat-button-toggle>
+            </mat-button-toggle-group>            
+          </div>        
+        </div>
+      </mat-button-toggle-group> -->
+
+      <mat-accordion >        
+        <mat-expansion-panel hideToggle *ngFor="let item of items">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon [class]="item.class">{{item.icon}}</mat-icon>
+              <label>{{item.label}}</label>                   
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngFor="let subItem of item.items"> 
+            
+            <button (click)="navigate(subItem.routerLink[0])">
+              <mat-icon [class]="subItem.class">{{subItem.icon}}</mat-icon>
+              <label for="">{{subItem.label}}</label>              
+            </button>
+          </div>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+<!-- 
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <div style="width: 100px; height: 100px; background: red;"></div>
+            <mat-panel-title>
+              This is the expansion title
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <button (click)="ok2()">Hola</button>
+          <p>This is the primary content of the panel.</p>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              This is the expansion title
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <button>Hola</button>
+          <p>This is the primary content of the panel.</p>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              This is the expansion title
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <button>Hola</button>
+          <p>This is the primary content of the panel.</p>
+        </mat-expansion-panel>
+        
+      </mat-accordion> -->
+
+
+    </mat-drawer>
   
-        </div>
-        <div >
-        <router-outlet></router-outlet>
-        </div>
+    <div class="example-sidenav-content">
+      <!-- <button type="button" style="background: red;" mat-button (click)="drawer.toggle()">
+        Toggle sidenav
+      </button> -->
+      <router-outlet></router-outlet>
     </div>
-  </div>
-</body> -->
+  
+  </mat-drawer-container>
 
 
+</main>
 
-
-
-
-<body class="g-sidenav-show navbar-toggler  bg-gray-200 ">
-  <aside
-    class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
-    id="sidenav-main">
-    <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-        aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
-        target="_blank">
-        <img src="../assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold text-white">SIGESS</span>
-      </a>
-    </div>
-    <hr class="horizontal light mt-0 mb-2">
-    <div class="collapse navbar-collapse w-auto max-height-vh-120" id="sidenav-collapse-main">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="../pages/dashboard.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">dashboard</i>
-            </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/tables.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
-            </div>
-            <span class="nav-link-text ms-1">Administración</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/billing.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Empresa</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/virtual-reality.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">view_in_ar</i>
-            </div>
-            <span class="nav-link-text ms-1">Contratistas</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/rtl.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
-            </div>
-            <span class="nav-link-text ms-1">Seguimiento Casos Médicos</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Autoevaluación</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">IPECR</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Inspección</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Reporte Condiciones</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Reporte A/I</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Ausentismo</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Información Documentada</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Seguimiento y Control</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Indicadores</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Actas COPASST</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    
-  </aside>
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
-      navbar-scroll="true">
-      <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <mat-icon class="breadcrumb-item" aria-hidden="false">home</mat-icon>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Home</li>
-          </ol>
-          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
-        </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <ul class="navbar-nav d-flex ms-md-auto align-items-center justify-content-end">
-            <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-              </a>
-            </li>
-            <li class="nav-item dropdown pe-2 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <i class="fa fa-bell cursor-pointer"></i>
-              </a>
-              <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New message</span> from Laur
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          13 minutes ago
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/small-logos/logo-spotify.svg"
-                          class="avatar avatar-sm bg-gradient-dark  me-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New album</span> by Travis Scott
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          1 day
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <a href="javascript:;" class="avatar avatar-sm rounded-circle">
-              <img src="../assets/img/team-1.jpg">
-            </a>
-            <br>
-            <li class="nav-item d-flex align-items-center">
-              <a class="nav-link text-body font-weight-bold px-0">
-
-                <span class="d-sm-inline d-none">User Name</span>
-              </a>
-            </li>
-            <li class="nav-item  ps-3 d-flex align-items-center">
-              <a class="nav-link text-body p-0" id="iconNavbarSidenav" role="button" (click)="ok()">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <router-outlet></router-outlet>
-  </main>
-</body>

@@ -1,4 +1,13 @@
 // 3. tipografia
+html{
+    font-size: 62.5%;
+    font-family: "DM Sans", sans-serif !important;
+}
+
+.mat-form-field{
+    font-family: "DM Sans", sans-serif !important;
+    font-size: 62.5%;
+}
 
 .link{
     font-size: 1.2rem;
@@ -6,6 +15,7 @@
 }
 
 .predec-link{
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
     color: var(--black);
 }
+

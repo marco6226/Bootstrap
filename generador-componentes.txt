@@ -1,20 +1,20 @@
 ng g component pageNotFound
-ng generate module modulos/admin --module app --routing true --route modulos/admin
-    ng g component modulos/admin/components/perfil
-    ng g component modulos/admin/components/permisos
-    ng g component modulos/admin/components/usuario
+ng generate module modulos/admin --module app --routing true --route modulos/admin  ***
+    ng g component modulos/admin/components/perfil              ***
+    ng g component modulos/admin/components/permisos            ***
+    ng g component modulos/admin/components/usuario             ***
     ng g service modulos/admin/services/perfil
     ng g service modulos/admin/services/permiso
     ng g service modulos/admin/services/recurso
     ng g service modulos/admin/services/usuario
 ng g module modulos/ado/documentos  ***
-    ng g component modulos/ado/components/documentoForm  ***
-    ng g component modulos/ado/components/documentoSelector  ***
-    ng g component modulos/ado/components/documentoUpload  ***
-    ng g component modulos/ado/components/gestionDocumental  ***
-    ng g interface modulos/ado/entities/directorio  ***
-    ng g interface modulos/ado/entities/documento  ***
-    ng g service modulos/ado/services/directorio  ***
+    ng g component modulos/ado/components/documentoForm         ***
+    ng g component modulos/ado/components/documentoSelector     ***
+    ng g component modulos/ado/components/documentoUpload       ***
+    ng g component modulos/ado/components/gestionDocumental     ***
+    ng g interface modulos/ado/entities/directorio              ***
+    ng g interface modulos/ado/entities/documento               ***
+    ng g service modulos/ado/services/directorio                ***
 ng g module modulos/aus
     ng g component modulos/aus/components/consultarAusentismo
     ng g component modulos/aus/components/reporteAusentismo

@@ -1,0 +1,41 @@
+mat-drawer-container{
+    width: 100%; 
+}
+
+mat-drawer-container > mat-drawer{
+    background: var(--blue) !important;
+    // background: var(--black-translucent) !important;
+    width: 28rem;
+    // height: 59.3rem;
+    height: 87%;
+    transform: none;
+    visibility: visible;
+    border-radius: 1.5rem; 
+    position: fixed !important;
+    top: 8rem !important;
+}
+
+mat-drawer-container > mat-drawer header{
+    font-size: 2rem;
+    color: var(--white);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.containerDrawer{
+    // background: salmon !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerDrawer div{
+    background: var(--danger-ligth) !important;
+    width: 100%;
+    align-self: center;
+    border-radius: 0 0 1rem 1rem;
+    padding: 1.5rem 0;
+}
+
+.containerDrawer div button{
+    margin: 0.2rem 0;    
+}

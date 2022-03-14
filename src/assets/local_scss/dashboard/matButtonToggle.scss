@@ -1,0 +1,51 @@
+mat-button-toggle-group{
+    font-family: "DM Sans", sans-serif !important;
+    // background: red !important;
+    width: 95% !important;
+    border-style: none !important;
+    // width: 95% !important;
+    border-radius: 1rem !important;
+    font-size: 1.2rem !important;
+    font-style: normal;
+}
+
+// mat-button-toggle-group mat-button-toggle{
+//     // background: transparent !important;
+//     // width: 95% !important;
+//     // border-radius: 1rem;
+//     // font-size: 1.2rem !important;
+//     // font-style: normal;
+// }
+
+.mat-button-toggle-appearance-standard{
+    background: none;
+}
+
+.mat-button-toggle-checked{
+    background: var(--danger);
+}
+
+.submenu{
+    border-radius: 15px;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+
+
+
+// mat-drawer-container mat-drawer button{
+//     background: transparent !important;
+//     width: 95% !important;
+//     border-radius: 1rem;
+//     font-size: 1.2rem !important;
+//     font-style: normal;
+// }
+
+// mat-drawer-container mat-drawer button:hover{
+//     background: var(--danger) !important;
+//     width: 95% !important;
+//     border-radius: 1rem;
+//     font-size: 1.2rem !important;
+//     font-style: normal;
+// }

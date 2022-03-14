@@ -1,9 +1,4 @@
 // 1. Posicionamiento
-html{
-    font-size: 62.5%;
-    font-family: 'DM Sans', sans-serif;
-}
-
 *{
     box-sizing: border-box;
     margin: 0;
@@ -13,10 +8,4 @@ html{
 .top-80{
     position: relative;
     top: 80px;
-}
-
-.login--toggle{    
-    position: relative;
-    top: -20px;
-    width: 85%;
 }

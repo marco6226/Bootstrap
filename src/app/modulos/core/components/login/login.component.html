@@ -110,7 +110,11 @@
               <input matInput [type]="typePassword" formControlName="password">
             </mat-form-field>
             <div>
-              <mat-slide-toggle color="primary" class="login--toggle" (click)="showPSW()">Mostrar contraseña</mat-slide-toggle>
+              <mat-slide-toggle color="primary" class="login--toggle" (click)="showPSW()">
+                <div>
+                  Mostrar contraseña
+                </div>
+              </mat-slide-toggle>
             </div>
           </div>
           <div>
