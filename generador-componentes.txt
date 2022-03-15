@@ -76,7 +76,7 @@ ng g module modulos/comun ***
     ng g service modulos/comun/services/configuracionGeneral
     ng g service modulos/comun/services/enumeraciones
     ng g service modulos/comun/services/htmlsanitizer
-    ng g service modulos/comun/services/mensajeUsuario
+    ng g service modulos/comun/services/mensajeUsuario      ***
     ng g directive modulos/comun/directives/configuracionGeneral
     ng g directive modulos/comun/directives/tienePermiso
     ng g validator modulos/comun/validators/passwordValidator

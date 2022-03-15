@@ -10,7 +10,7 @@ export const environment = {
   production: false
 };
 
-export const endPoints =  {
+export const endPoints: string | any =  {
   auth: path + "authenticate/",
   empresa: path + "empresa/",
   area: path + "area/",

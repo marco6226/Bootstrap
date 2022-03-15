@@ -1,8 +1,12 @@
+import { Empleado } from './../../../empresa/entities/empleado';
+import { Usuario } from './../../../empresa/entities/usuario';
+import { Empresa } from './../../../empresa/entities/empresa';
 import { Router } from '@angular/router';
 import { AfterContentInit, Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, SelectItem } from 'primeng/api';
 import { SesionService } from '../../services/sesion.service';
 import { ParametroNavegacionService } from '../../services/parametro-navegacion.service';
+import { EmpresaService } from 'src/app/modulos/empresa/services/empresa.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,27 +16,82 @@ import { ParametroNavegacionService } from '../../services/parametro-navegacion.
 export class DashboardComponent implements OnInit, AfterContentInit {
 
   items: any[] = [];
-
   nombreAUC!: string;
   nombreSEC!: string;
   nombreCOP!: string;
-
   panelOpenState = false;
-
   showFiller = false;
+
+  empresasItems: SelectItem[] = [];
+  empresaSelect!: Empresa;
+  empresaSelectOld!: Empresa;
+  usuario: Usuario | null | undefined;
+  empleado!: Empleado;
+//   items!: MenuItem[];
+  mapaPermisos: any;
+  modalDianostico = false;
+  displayModal!: boolean;
+//   tarea: MisTareasComponent;
+  public tareasPendientes: any;
+
 
   constructor(
     private sesionService: SesionService,
     private navService: ParametroNavegacionService,
+	private empresaService: EmpresaService,
   ) { }
 
   ngOnInit(): void {
-    // this.recargarMenu();
+    this.usuario = this.sesionService.getUsuario();
+    this.empresaService.findByUsuario(this.usuario?.id).then(
+        resp => {
+            this.loadItems(<Empresa[]>resp)
+            console.log(resp)
+        }
+    );
   }
 
   ngAfterContentInit() {
     this.recargarMenu();
   }
+
+  async loadItems(empresas: Empresa[]) {
+    empresas.forEach(emp => {
+        this.empresasItems.push({ label: emp.nombreComercial, value: emp });
+    });
+    if (this.sesionService.getEmpresa() == null) {
+        this.sesionService.setEmpresa(empresas[0]);
+    }
+    console.log(this.empresasItems)
+    // this.empresaSelect = this.sesionService.getEmpresa();
+    // this.empresaSelectOld = this.empresaSelect;
+
+    // this.confGenService.obtenerPorEmpresa()
+    //     .then((resp: ConfiguracionGeneral[]) => {
+    //         let mapaConfig = {};
+    //         resp.forEach(conf => mapaConfig[conf.codigo] = { 'valor': conf.valor, 'nombre': conf.nombre });
+    //         this.sesionService.setConfiguracionMap(mapaConfig);
+    //         this.menuComp.recargarMenu();
+    //     });
+
+    //     await this.permisoService.findAll()
+    //     .then((data: Permiso[]) => {
+    //         this.mapaPermisos = {};
+    //         data.forEach(element => this.mapaPermisos[element.recurso.codigo] = { 'valido': element.valido, 'areas': element.areas });
+    //         this.sesionService.setPermisosMap(this.mapaPermisos);
+    //         console.log(this.mapaPermisos);
+    //         this.menuComp.recargarMenu();
+    //     });
+
+                 
+    //         await this.empleadoService.findempleadoByUsuario(this.usuario.id).then(
+    //             resp => {
+    //               this.empleado = <Empleado>(resp);	
+    //               console.log(this.empleado);				  
+    //               this.sesionService.setEmpleado(this.empleado);
+    //             }
+    //           );        
+}
 
   irHome() {
     this.navService.redirect('/app/home');

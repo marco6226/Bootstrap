@@ -1,12 +1,13 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthGuardService } from '../../auth-guard.service';
 import { AuthService } from '../../auth.service';
 import {MessageService} from 'primeng/api';
 import { MensajeUsuario } from '../../entities/mensaje-usuario';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SesionService } from '../../services/sesion.service';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
   intentosMax = 5;
   relojText: string | undefined;
 
+  version: any;
 
 
   constructor(
@@ -36,7 +38,9 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
 		private AuthGuardService: AuthGuardService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private sesionService: SesionService,
+    private activateRoute: ActivatedRoute,
   ) { 
     this.subscription = this.authService.getLoginObservable().subscribe(visible => this.setVisible(visible));
     this.formLogin = fb.group({
@@ -49,12 +53,31 @@ export class LoginComponent implements OnInit {
 
   setVisible(visible: boolean) {
     // this.msgs = [];
-    // this.messageService.add({severity:'warn', summary: 'pro', detail: 'Se cerro su sesion inicie de nuevo por favor'});
+    this.messageService.add({severity:'warn', summary: 'pro', detail: 'Se cerro su sesion inicie de nuevo por favor'});
     this.visible = visible;
   }
 
   ngOnInit(): void {
-   
+    this.version = this.sesionService.getAppVersion();
+        this.activateRoute.queryParams
+            .subscribe(params => {
+                console.log(params)
+                // if (params.redirect) {
+                //     localStorage.setItem('url', params.redirect);
+                // }
+
+
+            })
+        this.typePassword = 'password';
+        if (this.sesionService.getEmpresa() != null && this.sesionService.getUsuario() != null) {
+            this.router.navigate([this.authService.redirectUrl]);
+        } else {
+            let countDown = Number(localStorage.getItem('countDown'));
+            if (countDown != null && countDown > 0) {
+                this.contadorFallas = 5;
+                this.iniciarContador(countDown);
+            }
+        }
   }
 
   showPSW(){
