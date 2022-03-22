@@ -19,9 +19,24 @@
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>
     </button>
-    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <button mat-icon-button class="example-icon" (click)="onLogout()" aria-label="Example icon-button with share icon">
       <mat-icon>share</mat-icon>
-    </button> -->
+    </button>
+    <mat-form-field appearance="standard" style="width: 10rem !important;">
+      <mat-label>Compañia</mat-label>
+      <mat-select [value]="empresaSelect?.nombreComercial">
+        <mat-option *ngFor="let empresa of empresasItems" [value]="empresaSelect?.nombreComercial">
+          {{empresa.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- <h1>{{this.getEmpresa?.nombreComercial}}</h1>
+    <mat-form-field appearance="fill">
+      <mat-label>Cars</mat-label>
+      <select matNativeControl>        
+        <option *ngFor="let empresa of empresasItems" [value]="empresa.value" >volvo</option>     
+      </select>
+    </mat-form-field> -->
   </mat-toolbar>
 
 

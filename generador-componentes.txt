@@ -73,7 +73,7 @@ ng g module modulos/comun ***
     ng g service modulos/comun/services/cie
     ng g service modulos/comun/services/ciudad
     ng g service modulos/comun/services/comun
-    ng g service modulos/comun/services/configuracionGeneral
+    ng g service modulos/comun/services/configuracionGeneral    ***
     ng g service modulos/comun/services/enumeraciones
     ng g service modulos/comun/services/htmlsanitizer
     ng g service modulos/comun/services/mensajeUsuario      ***

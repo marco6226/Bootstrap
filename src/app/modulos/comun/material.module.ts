@@ -11,6 +11,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSelectModule} from '@angular/material/select';
 
 const modules = [
   MatFormFieldModule,
@@ -23,7 +24,8 @@ const modules = [
   MatSidenavModule,
   MatSlideToggleModule,
   MatButtonToggleModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatSelectModule
 ];
 
 @NgModule({

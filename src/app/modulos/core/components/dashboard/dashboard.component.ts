@@ -7,6 +7,9 @@ import { MenuItem, SelectItem } from 'primeng/api';
 import { SesionService } from '../../services/sesion.service';
 import { ParametroNavegacionService } from '../../services/parametro-navegacion.service';
 import { EmpresaService } from 'src/app/modulos/empresa/services/empresa.service';
+import { AuthService } from '../../auth.service';
+import { ConfiguracionGeneralService } from 'src/app/modulos/comun/services/configuracion-general.service';
+import { ConfiguracionGeneral } from 'src/app/modulos/comun/entities/configuracion-general';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,9 +25,12 @@ export class DashboardComponent implements OnInit, AfterContentInit {
   panelOpenState = false;
   showFiller = false;
 
+//   getEmpresa?: Empresa | null;
+  
+
   empresasItems: SelectItem[] = [];
-  empresaSelect!: Empresa;
-  empresaSelectOld!: Empresa;
+  empresaSelect?: Empresa | null;
+  empresaSelectOld?: Empresa | null;
   usuario: Usuario | null | undefined;
   empleado!: Empleado;
 //   items!: MenuItem[];
@@ -39,6 +45,9 @@ export class DashboardComponent implements OnInit, AfterContentInit {
     private sesionService: SesionService,
     private navService: ParametroNavegacionService,
 	private empresaService: EmpresaService,
+    private authService: AuthService,
+    private router: Router,
+    private confGenService: ConfiguracionGeneralService,
   ) { }
 
   ngOnInit(): void {
@@ -62,12 +71,18 @@ export class DashboardComponent implements OnInit, AfterContentInit {
     if (this.sesionService.getEmpresa() == null) {
         this.sesionService.setEmpresa(empresas[0]);
     }
+    // this.getEmpresa = this.sesionService.getEmpresa(); 
+    // console.log(this.getEmpresa, this.getEmpresa?.nombreComercial)
+    console.log(empresas,empresas[0],this.sesionService.getEmpresa())
+    // this.val=this.empresasItems[0].value;
     console.log(this.empresasItems)
-    // this.empresaSelect = this.sesionService.getEmpresa();
-    // this.empresaSelectOld = this.empresaSelect;
+    this.empresaSelect = this.sesionService.getEmpresa();
+    this.empresaSelectOld = this.empresaSelect;
 
-    // this.confGenService.obtenerPorEmpresa()
-    //     .then((resp: ConfiguracionGeneral[]) => {
+    this.confGenService.obtenerPorEmpresa().then((resp)=>console.log(resp))
+        
+    
+    // .then((resp: ConfiguracionGeneral[]) => {
     //         let mapaConfig = {};
     //         resp.forEach(conf => mapaConfig[conf.codigo] = { 'valor': conf.valor, 'nombre': conf.nombre });
     //         this.sesionService.setConfiguracionMap(mapaConfig);
@@ -91,7 +106,20 @@ export class DashboardComponent implements OnInit, AfterContentInit {
     //               this.sesionService.setEmpleado(this.empleado);
     //             }
     //           );        
-}
+    }
+
+    onLogout(){
+        this.authService.logout().then(
+			resp => this.router.navigate(['/app/home'])
+            // resp => this.navService.redirect('/login')
+
+		).catch(
+			err => {
+				
+				alert("Se produjo un error al cerrar sesión, ingresar nuevamente")
+			}
+		);
+    }
 
   irHome() {
     this.navService.redirect('/app/home');

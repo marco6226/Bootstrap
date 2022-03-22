@@ -34,7 +34,7 @@ export class SesionService {
 
   public getEmpresa(): Empresa | null | undefined{
     if (this.session == null) {
-        this.session = <Session>JSON.parse(localStorage.getItem(config.session_id) || '{}');
+        this.session = <Session>JSON.parse(localStorage.getItem(config.session_id) || '');
         if (this.session == null) return null;
     }
     return this.session.empresa;
