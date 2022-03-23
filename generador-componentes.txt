@@ -4,7 +4,7 @@ ng generate module modulos/admin --module app --routing true --route modulos/adm
     ng g component modulos/admin/components/permisos            ***
     ng g component modulos/admin/components/usuario             ***
     ng g service modulos/admin/services/perfil
-    ng g service modulos/admin/services/permiso
+    ng g service modulos/admin/services/permiso                 ***
     ng g service modulos/admin/services/recurso
     ng g service modulos/admin/services/usuario
 ng g module modulos/ado/documentos  ***
@@ -237,12 +237,12 @@ ng generate module modulos/observaciones --module app --routing true --route mod
     ng g interface modulos/observaciones/entities/tarjeta
     ng g service modulos/observaciones/services/observacion
     ng g service modulos/observaciones/services/tarjeta
-ng g module modulos/rai
-    ng g component modulos/rai/components/cargarArchivo
-    ng g component modulos/rai/components/consultaReportes
-    ng g component modulos/rai/components/registroReportes
-    ng g component modulos/rai/components/registroReportes/formularioAccidente
-    ng g component modulos/rai/components/registroReportes/formularioIncidente
+ng g module modulos/rai     ***                 
+    ng g component modulos/rai/components/cargarArchivo                             ***
+    ng g component modulos/rai/components/consultaReportes                          ***
+    ng g component modulos/rai/components/registroReportes                          ***
+    ng g component modulos/rai/components/registroReportes/formularioAccidente      ***
+    ng g component modulos/rai/components/registroReportes/formularioIncidente      ***
     ng g interface modulos/rai/entities/reporte
     ng g interface modulos/rai/entities/testigoReporte
     ng g enum modulos/rai/enumeraciones/reporteEnumeraciones

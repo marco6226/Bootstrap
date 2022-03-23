@@ -8,8 +8,14 @@ import { PageNotFoundComponent } from 'src/app/page-not-found/page-not-found.com
 import { PerfilComponent } from 'src/app/modulos/admin/components/perfil/perfil.component';
 import { AdminModule } from './../../../admin/admin.module';
 import { PermisosComponent } from 'src/app/modulos/admin/components/permisos/permisos.component';
+import { LoginComponent } from '../login/login.component';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  // {path: 'login', redirectTo: '/login', pathMatch: 'full'},
   {
     path: 'app',
     component: DashboardComponent,

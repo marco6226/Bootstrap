@@ -8,7 +8,7 @@ import { ServiceCRUD } from '../../core/services/service-crud.service';
 export class ConfiguracionGeneralService extends ServiceCRUD<ConfiguracionGeneral>{
 
   obtenerPorEmpresa() {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         this.httpInt.get(this.end_point + 'empresa')
             .subscribe(
                 res => resolve(res),

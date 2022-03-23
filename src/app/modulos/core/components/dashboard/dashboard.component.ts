@@ -10,6 +10,9 @@ import { EmpresaService } from 'src/app/modulos/empresa/services/empresa.service
 import { AuthService } from '../../auth.service';
 import { ConfiguracionGeneralService } from 'src/app/modulos/comun/services/configuracion-general.service';
 import { ConfiguracionGeneral } from 'src/app/modulos/comun/entities/configuracion-general';
+import { PermisoService } from 'src/app/modulos/admin/services/permiso.service';
+import { Permiso } from 'src/app/modulos/empresa/entities/permiso';
+import { EmpleadoService } from 'src/app/modulos/empresa/services/empleado.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -33,6 +36,7 @@ export class DashboardComponent implements OnInit, AfterContentInit {
   empresaSelectOld?: Empresa | null;
   usuario: Usuario | null | undefined;
   empleado!: Empleado;
+  
 //   items!: MenuItem[];
   mapaPermisos: any;
   modalDianostico = false;
@@ -48,6 +52,8 @@ export class DashboardComponent implements OnInit, AfterContentInit {
     private authService: AuthService,
     private router: Router,
     private confGenService: ConfiguracionGeneralService,
+	private permisoService: PermisoService,
+    private empleadoService: EmpleadoService,
   ) { }
 
   ngOnInit(): void {
@@ -79,43 +85,41 @@ export class DashboardComponent implements OnInit, AfterContentInit {
     this.empresaSelect = this.sesionService.getEmpresa();
     this.empresaSelectOld = this.empresaSelect;
 
-    this.confGenService.obtenerPorEmpresa().then((resp)=>console.log(resp))
-        
-    
-    // .then((resp: ConfiguracionGeneral[]) => {
-    //         let mapaConfig = {};
-    //         resp.forEach(conf => mapaConfig[conf.codigo] = { 'valor': conf.valor, 'nombre': conf.nombre });
-    //         this.sesionService.setConfiguracionMap(mapaConfig);
-    //         this.menuComp.recargarMenu();
-    //     });
+    this.confGenService.obtenerPorEmpresa().then((resp: ConfiguracionGeneral | any)=>{
+            console.log(resp)
+            let mapaConfig: any = {};
+            resp.forEach((conf: ConfiguracionGeneral) => {
+                mapaConfig[conf.codigo] =  { 'valor': conf.valor, 'nombre': conf.nombre }
+            });
+            this.sesionService.setConfiguracionMap(mapaConfig);
+            this.recargarMenu();
+        });
+  
 
-    //     await this.permisoService.findAll()
-    //     .then((data: Permiso[]) => {
-    //         this.mapaPermisos = {};
-    //         data.forEach(element => this.mapaPermisos[element.recurso.codigo] = { 'valido': element.valido, 'areas': element.areas });
-    //         this.sesionService.setPermisosMap(this.mapaPermisos);
-    //         console.log(this.mapaPermisos);
-    //         this.menuComp.recargarMenu();
-    //     });
+        await this.permisoService.findAll().then((data: Permiso[] | any)=>{
+            console.log(data)
+            this.mapaPermisos = {};
+            data.forEach((element: any) => this.mapaPermisos[element.recurso.codigo] = { 'valido': element.valido, 'areas': element.areas });
+            console.log(this.mapaPermisos)
+            this.recargarMenu();
+        })
 
-                 
-    //         await this.empleadoService.findempleadoByUsuario(this.usuario.id).then(
-    //             resp => {
-    //               this.empleado = <Empleado>(resp);	
-    //               console.log(this.empleado);				  
-    //               this.sesionService.setEmpleado(this.empleado);
-    //             }
-    //           );        
+        await this.empleadoService.findempleadoByUsuario(this.usuario?.id).then(resp=>{
+            console.log(resp)
+            this.empleado = <Empleado>(resp);
+            console.log(this.empleado);
+            this.sesionService.setEmpleado(this.empleado);
+        })
     }
 
-    onLogout(){
-        this.authService.logout().then(
-			resp => this.router.navigate(['/app/home'])
-            // resp => this.navService.redirect('/login')
-
+    async onLogout(){
+        await this.authService.logout().then(
+            resp =>{ 
+                window.location.reload();
+                this.router.navigate(['/login']);
+            }
 		).catch(
-			err => {
-				
+			err => {				
 				alert("Se produjo un error al cerrar sesión, ingresar nuevamente")
 			}
 		);

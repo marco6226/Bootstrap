@@ -85,6 +85,7 @@ export class AuthService {
   }
 
   logout() {
+    console.log("oka")
     let refresh = this.sesionService.getRefreshToken();
     let auth = this.sesionService.getAuthToken();
     return new Promise((resolve, reject) => {
@@ -92,8 +93,10 @@ export class AuthService {
             .post(this.authEndPoint + "logout", {
                 refresh: refresh,
                 Authorization: auth,
-            }).subscribe(res =>{
-              resolve(res)
+            }).subscribe(async res =>{
+              console.log(res)
+              await this.sesionService.setLoggedIn(false);
+              resolve(res);              
             }),
             ((err: any)=>{
               reject(err)
