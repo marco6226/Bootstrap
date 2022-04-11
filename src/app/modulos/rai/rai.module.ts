@@ -5,6 +5,8 @@ import { ConsultaReportesComponent } from './components/consulta-reportes/consul
 import { RegistroReportesComponent } from './components/registro-reportes/registro-reportes.component';
 import { FormularioAccidenteComponent } from './components/registroReportes/formulario-accidente/formulario-accidente.component';
 import { FormularioIncidenteComponent } from './components/registroReportes/formulario-incidente/formulario-incidente.component';
+import { ComunModule } from '../comun/comun.module';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -17,7 +19,9 @@ import { FormularioIncidenteComponent } from './components/registroReportes/form
     FormularioIncidenteComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ComunModule,
+    CoreModule
   ]
 })
 export class RaiModule { }

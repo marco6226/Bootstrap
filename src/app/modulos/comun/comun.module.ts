@@ -10,7 +10,7 @@ import { PrimengModule } from './primeng.module';
   imports: [
     CommonModule,
     MaterialModule,
-    PrimengModule
+    PrimengModule,
   ],
   exports: [
     MaterialModule,

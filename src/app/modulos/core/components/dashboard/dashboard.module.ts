@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { ComunModule } from 'src/app/modulos/comun/comun.module';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
+import { ScmModule } from 'src/app/modulos/scm/scm.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    ComunModule
+    ComunModule,
+    // ScmModule
   ]
 })
 export class DashboardModule { }

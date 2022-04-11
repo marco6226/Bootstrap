@@ -15,7 +15,7 @@ import { GestionDocumentalComponent } from './modulos/ado/components/gestion-doc
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpAuthInterceptor } from './modulos/core/services/http-auth.interceptor';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
+// import { ScmModule } from './modulos/scm/scm.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +30,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule,
     BrowserAnimationsModule,
     ComunModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     HttpInt,

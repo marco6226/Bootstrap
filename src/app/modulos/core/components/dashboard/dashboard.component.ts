@@ -185,8 +185,8 @@ export class DashboardComponent implements OnInit, AfterContentInit {
             expanded: false,
             items:
                 [
-                    { label: 'Administración', codigo: 'CTR_ADM', routerLink: '/app/ctr/adminContratistas',icon: 'admin_panel_settings', class: 'material-icons' },
-                    { label: 'Seguimiento', codigo: 'CTR_IND', routerLink: '/app/ctr/seguimientoContratistas',icon: 'pie_chart', class: 'material-icons' }
+                    { label: 'Administración', codigo: 'CTR_ADM', routerLink: ['/app/ctr/adminContratistas'],icon: 'admin_panel_settings', class: 'material-icons' },
+                    { label: 'Seguimiento', codigo: 'CTR_IND', routerLink: ['/app/ctr/seguimientoContratistas'],icon: 'pie_chart', class: 'material-icons' }
                 ]
         },
         {
@@ -197,9 +197,9 @@ export class DashboardComponent implements OnInit, AfterContentInit {
             expanded: false,
             items:
                 [
-                    { label: 'Creacion de seguimiento caso', codigo: 'SCM_CREATE_CASE', routerLink: '/app/scm/creacion',icon: 'medical_services', class: 'material-icons' },
-                    { label: 'Listado de seguimientos', codigo: 'SCM_LIST_CASE', routerLink: '/app/scm/list',icon: 'assignment', class: 'material-icons' },
-                    { label: 'Permisos', codigo: 'SCM_PERF_SCM', routerLink: '/app/scm/permisos',icon: 'lock', class: 'material-icons' },
+                    { label: 'Creacion de seguimiento caso', codigo: 'SCM_CREATE_CASE', routerLink: ['/app/scm/creacion'],icon: 'medical_services', class: 'material-icons' },
+                    { label: 'Listado de seguimientos', codigo: 'SCM_LIST_CASE', routerLink: ['/app/scm/list'],icon: 'assignment', class: 'material-icons' },
+                    { label: 'Permisos', codigo: 'SCM_PERF_SCM', routerLink: ['/app/scm/permisos'],icon: 'lock', class: 'material-icons' },
 
                 ]
         },
@@ -211,9 +211,9 @@ export class DashboardComponent implements OnInit, AfterContentInit {
             expanded: false,
             items:
                 [
-                    { label: 'Elaboración SGE', codigo: 'SGE_POST_SGE', routerLink: '/app/sg/sgeForm',icon: 'note_add', class: 'material-icons' },
-                    { label: 'Sistemas de Gestión', codigo: 'SGE_GET_SGE', routerLink: '/app/sg/sistemasGestion',icon: 'apps', class: 'material-icons' },
-                    { label: 'Consulta Evaluacion', codigo: 'SGE_GET_EVAL', routerLink: '/app/sg/consultaEvaluaciones',icon: 'view_list', class: 'material-icons' }
+                    { label: 'Elaboración SGE', codigo: 'SGE_POST_SGE', routerLink: ['/app/sg/sgeForm'],icon: 'note_add', class: 'material-icons' },
+                    { label: 'Sistemas de Gestión', codigo: 'SGE_GET_SGE', routerLink: ['/app/sg/sistemasGestion'],icon: 'apps', class: 'material-icons' },
+                    { label: 'Consulta Evaluacion', codigo: 'SGE_GET_EVAL', routerLink: ['/app/sg/consultaEvaluaciones'],icon: 'view_list', class: 'material-icons' }
                 ]
         },
         {
@@ -224,9 +224,9 @@ export class DashboardComponent implements OnInit, AfterContentInit {
             expanded: false,
             items:
                 [
-                    { label: 'Parametrización peligros', codigo: 'IPECR_PARAMPEL', routerLink: '/app/ipr/peligros',icon: 'settings_applications', class: 'material-icons' },
-                    { label: 'Elaboración IPECR', codigo: 'IPECR_ELABIPECR', routerLink: '/app/ipr/formularioIpecr',icon: 'info', class: 'material-icons' },
-                    { label: 'Consulta IPECR', codigo: 'IPECR_GET_IPECR', routerLink: '/app/ipr/consultaIpecr',icon: 'view_list', class: 'material-icons' },
+                    { label: 'Parametrización peligros', codigo: 'IPECR_PARAMPEL', routerLink: ['/app/ipr/peligros'],icon: 'settings_applications', class: 'material-icons' },
+                    { label: 'Elaboración IPECR', codigo: 'IPECR_ELABIPECR', routerLink: ['/app/ipr/formularioIpecr'],icon: 'info', class: 'material-icons' },
+                    { label: 'Consulta IPECR', codigo: 'IPECR_GET_IPECR', routerLink: ['/app/ipr/consultaIpecr'],icon: 'view_list', class: 'material-icons' },
                 ]
         },
         {
@@ -251,9 +251,9 @@ export class DashboardComponent implements OnInit, AfterContentInit {
             expanded: false,
             items:
                 [
-                    { label: 'Tarjetas', codigo: 'AUC_POST_TARJ', routerLink: '/app/auc/tarjeta' },
-                    { label: 'Reportar', codigo: 'AUC_POST_OBS', routerLink: '/app/auc/observaciones',icon: 'visibility', class: 'material-icons' },
-                    { label: 'Consultar', codigo: 'AUC_GET_OBS', routerLink: '/app/auc/consultaObservaciones',icon: '', class: 'material-icons' }
+                    { label: 'Tarjetas', codigo: 'AUC_POST_TARJ', routerLink: ['/app/auc/tarjeta'] },
+                    { label: 'Reportar', codigo: 'AUC_POST_OBS', routerLink: ['/app/auc/observaciones'],icon: 'visibility', class: 'material-icons' },
+                    { label: 'Consultar', codigo: 'AUC_GET_OBS', routerLink: ['/app/auc/consultaObservaciones'],icon: '', class: 'material-icons' }
                 ]
         },
         {
@@ -264,9 +264,9 @@ export class DashboardComponent implements OnInit, AfterContentInit {
             expanded: false,
             items:
                 [
-                    { label: 'Cargar archivo', codigo: 'RAI_POST_ARCH', routerLink: '/app/rai/cargaArchivo',icon: '', class: 'material-icons' },
-                    { label: 'Registrar reporte', codigo: 'RAI_POST_REP', routerLink: '/app/rai/registroReporte',icon: '', class: 'material-icons' },
-                    { label: 'Consulta reportes', codigo: 'RAI_GET_REP', routerLink: '/app/rai/consultaReportes',icon: '', class: 'material-icons' }
+                    { label: 'Cargar archivo', codigo: 'RAI_POST_ARCH', routerLink: ['/app/rai/cargaArchivo'],icon: '', class: 'material-icons' },
+                    { label: 'Registrar reporte', codigo: 'RAI_POST_REP', routerLink: ['/app/rai/registroReporte'],icon: '', class: 'material-icons' },
+                    { label: 'Consulta reportes', codigo: 'RAI_GET_REP', routerLink: ['/app/rai/consultaReportes'],icon: '', class: 'material-icons' }
                 ]
         },
         {
@@ -277,8 +277,8 @@ export class DashboardComponent implements OnInit, AfterContentInit {
             expanded: false,
             items:
                 [
-                    { label: 'Reporte de ausentismo', codigo: 'AUS_POST_REPAUS', routerLink: '/app/aus/reporteAusentismo',icon: '', class: 'material-icons' },
-                    { label: 'Consulta de reportes', codigo: 'AUS_GET_REPAUS', routerLink: '/app/aus/consultaAusentismo',icon: '', class: 'material-icons' },
+                    { label: 'Reporte de ausentismo', codigo: 'AUS_POST_REPAUS', routerLink: ['/app/aus/reporteAusentismo'],icon: '', class: 'material-icons' },
+                    { label: 'Consulta de reportes', codigo: 'AUS_GET_REPAUS', routerLink: ['/app/aus/consultaAusentismo'],icon: '', class: 'material-icons' },
                 ]
         },
         {
@@ -302,10 +302,10 @@ export class DashboardComponent implements OnInit, AfterContentInit {
             codigo: 'SEC',
             items:
                 [
-                    { label: 'Investigación', codigo: 'SEC_GET_DESV', routerLink: '/app/sec/desviaciones',icon: '', class: 'material-icons' },
+                    { label: 'Investigación', codigo: 'SEC_GET_DESV', routerLink: ['/app/sec/desviaciones'],icon: '', class: 'material-icons' },
                     // { label: 'Investigaciones', codigo: 'SEC_GET_ANADESV', routerLink: '/app/sec/consultaAnalisisDesviaciones', class: 'fa fa-exchange' },
-                    { label: 'Tareas asignadas', codigo: 'SEC_GET_TAR', routerLink: '/app/sec/tareasAsignadas',icon: '', class: 'material-icons' },
-                    { label: 'Mis tareas', codigo: 'SEC_GET_MYTAR', routerLink: '/app/sec/misTareas',icon: '', class: 'material-icons' },
+                    { label: 'Tareas asignadas', codigo: 'SEC_GET_TAR', routerLink: ['/app/sec/tareasAsignadas'],icon: '', class: 'material-icons' },
+                    { label: 'Mis tareas', codigo: 'SEC_GET_MYTAR', routerLink: ['/app/sec/misTareas'],icon: '', class: 'material-icons' },
                 ]
         },
         {
@@ -317,12 +317,12 @@ export class DashboardComponent implements OnInit, AfterContentInit {
             items:
                 [
                     // { label: 'Elaboracion tableros', codigo: 'IND_POST_TAB', routerLink: '/app/ind/elaboracionTablero', class: 'fa fa-wrench' },
-                    { label: 'Consulta tableros', codigo: 'IND_GET_TAB', routerLink: '/app/ind/consultaTablero',icon: '', class: 'material-icons' },
-                    { label: 'Ausentismo', codigo: 'IND_GET_AUS', routerLink: '/app/ind/ausentismo',icon: '', class: 'material-icons' },
-                    { label: 'Talento humano', codigo: 'IND_GET_EMP', routerLink: '/app/ind/emp',icon: '', class: 'material-icons' },
-                    { label: 'Autoevaluacion', codigo: 'IND_GET_SGE', routerLink: '/app/ind/sge',icon: '', class: 'material-icons' },
-                    { label: 'Reporte de accidentes', codigo: 'IND_GET_RAI', routerLink: '/app/ind/rai',icon: '', class: 'material-icons' },
-                    { label: 'Inspecciones', codigo: 'IND_GET_INP', routerLink: '/app/ind/inp',icon: '', class: 'material-icons' },
+                    { label: 'Consulta tableros', codigo: 'IND_GET_TAB', routerLink: ['/app/ind/consultaTablero'],icon: '', class: 'material-icons' },
+                    { label: 'Ausentismo', codigo: 'IND_GET_AUS', routerLink: ['/app/ind/ausentismo'],icon: '', class: 'material-icons' },
+                    { label: 'Talento humano', codigo: 'IND_GET_EMP', routerLink: ['/app/ind/emp'],icon: '', class: 'material-icons' },
+                    { label: 'Autoevaluacion', codigo: 'IND_GET_SGE', routerLink: ['/app/ind/sge'],icon: '', class: 'material-icons' },
+                    { label: 'Reporte de accidentes', codigo: 'IND_GET_RAI', routerLink: ['/app/ind/rai'],icon: '', class: 'material-icons' },
+                    { label: 'Inspecciones', codigo: 'IND_GET_INP', routerLink: ['/app/ind/inp'],icon: '', class: 'material-icons' },
                 ]
         },
         {
@@ -333,7 +333,7 @@ export class DashboardComponent implements OnInit, AfterContentInit {
             expanded: false,
             items:
                 [
-                    { label: 'Actas', codigo: 'COP_GET_ACT', routerLink: '/app/cop/consultaActas',icon: '', class: 'material-icons' }
+                    { label: 'Actas', codigo: 'COP_GET_ACT', routerLink: ['/app/cop/consultaActas'],icon: '', class: 'material-icons' }
                 ]
         },
         {
@@ -344,7 +344,7 @@ export class DashboardComponent implements OnInit, AfterContentInit {
             expanded: false,
             items:
                 [
-                    { label: 'Manuales', codigo: 'CONF_GET_MANUSR', routerLink: '/app/ayuda/manuales',icon: '', class: 'material-icons' }
+                    { label: 'Manuales', codigo: 'CONF_GET_MANUSR', routerLink: ['/app/ayuda/manuales'],icon: '', class: 'material-icons' }
                 ]
         }
     ];
