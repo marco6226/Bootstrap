@@ -230,22 +230,25 @@ position: fixed;">
       </mat-button-toggle-group> -->
 
       <mat-accordion >        
-        <mat-expansion-panel hideToggle *ngFor="let item of items">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <mat-icon [class]="item.class">{{item.icon}}</mat-icon>
-              <label>{{item.label}}</label>                   
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <div *ngFor="let subItem of item.items"> 
-            
-            <button (click)="navigate(subItem.routerLink[0])">
-              <mat-icon [class]="subItem.class">{{subItem.icon}}</mat-icon>
-              <label for="">{{subItem.label}}</label>              
-            </button>
-          </div>
-        </mat-expansion-panel>
-
+        <div *ngFor="let item of items">
+          <mat-expansion-panel hideToggle *sTienePermiso="item.codigo">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon [class]="item.class">{{item.icon}}</mat-icon>
+                <label>{{item.label}}</label>                   
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let subItem of item.items"> 
+              
+              <button *sTienePermiso="subItem.codigo" (click)="navigate(subItem.routerLink[0])">
+                <mat-icon [class]="subItem.class">{{subItem.icon}}</mat-icon>
+                <label for="">{{subItem.label}}</label>              
+              </button>
+            </div>
+          </mat-expansion-panel>
+  
+        </div>
+       
       </mat-accordion>
 <!-- 
       <mat-accordion>

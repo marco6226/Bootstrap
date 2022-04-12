@@ -100,6 +100,7 @@ export class DashboardComponent implements OnInit, AfterContentInit {
             console.log(data)
             this.mapaPermisos = {};
             data.forEach((element: any) => this.mapaPermisos[element.recurso.codigo] = { 'valido': element.valido, 'areas': element.areas });
+            this.sesionService.setPermisosMap(this.mapaPermisos);
             console.log(this.mapaPermisos)
             this.recargarMenu();
         })
