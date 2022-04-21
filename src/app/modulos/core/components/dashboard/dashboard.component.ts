@@ -2,8 +2,8 @@ import { Empleado } from './../../../empresa/entities/empleado';
 import { Usuario } from './../../../empresa/entities/usuario';
 import { Empresa } from './../../../empresa/entities/empresa';
 import { Router } from '@angular/router';
-import { AfterContentInit, Component, OnInit } from '@angular/core';
-import { MenuItem, SelectItem } from 'primeng/api';
+import { AfterContentInit, Component, EventEmitter, OnInit } from '@angular/core';
+import { ConfirmationService, MenuItem, SelectItem } from 'primeng/api';
 import { SesionService } from '../../services/sesion.service';
 import { ParametroNavegacionService } from '../../services/parametro-navegacion.service';
 import { EmpresaService } from 'src/app/modulos/empresa/services/empresa.service';
@@ -54,10 +54,14 @@ export class DashboardComponent implements OnInit, AfterContentInit {
     private confGenService: ConfiguracionGeneralService,
 	private permisoService: PermisoService,
     private empleadoService: EmpleadoService,
+	private confirmationService: ConfirmationService,
+    
+
   ) { }
 
   ngOnInit(): void {
     this.usuario = this.sesionService.getUsuario();
+    console.log(this.usuario)
     this.empresaService.findByUsuario(this.usuario?.id).then(
         resp => {
             this.loadItems(<Empresa[]>resp)
@@ -74,8 +78,10 @@ export class DashboardComponent implements OnInit, AfterContentInit {
     empresas.forEach(emp => {
         this.empresasItems.push({ label: emp.nombreComercial, value: emp });
     });
+    console.log(this.sesionService.getEmpresa())
     if (this.sesionService.getEmpresa() == null) {
-        this.sesionService.setEmpresa(empresas[0]);
+        this.sesionService.setEmpresa(empresas[1]);
+        console.log("hola")
     }
     // this.getEmpresa = this.sesionService.getEmpresa(); 
     // console.log(this.getEmpresa, this.getEmpresa?.nombreComercial)
@@ -84,8 +90,9 @@ export class DashboardComponent implements OnInit, AfterContentInit {
     console.log(this.empresasItems)
     this.empresaSelect = this.sesionService.getEmpresa();
     this.empresaSelectOld = this.empresaSelect;
+    console.log(this.empresaSelectOld, this.empresaSelect)
 
-    this.confGenService.obtenerPorEmpresa().then((resp: ConfiguracionGeneral | any)=>{
+    await this.confGenService.obtenerPorEmpresa().then((resp: ConfiguracionGeneral | any)=>{
             console.log(resp)
             let mapaConfig: any = {};
             resp.forEach((conf: ConfiguracionGeneral) => {
@@ -351,5 +358,57 @@ export class DashboardComponent implements OnInit, AfterContentInit {
     ];
   }
 
-  
+
+  async onChangeEmpresa() {
+    console.log(this.empresaSelect)
+    console.log(this.empresaSelectOld)
+
+    console.log("sip")
+    this.empresaSelect = this.sesionService.getEmpresa()
+    console.log(this.sesionService.getEmpresa(),this.empresaSelect)
+    this.confirmationService.confirm({
+        header: '¿Cambiar a la empresa "' + this.empresaSelect?.nombreComercial + '"?',
+        message: 'Esto reiniciará la sesión actual, ¿Desea continuar?',
+        accept: async() => {
+            this.sesionService.setEmpresa(this.empresaSelect!);				
+            //await location.reload();
+            await this.router.navigate([('/app/home')]);
+            // await location.reload();
+        },
+        reject: () => {
+            this.empresaSelect = this.empresaSelectOld;
+        },
+    });		
+
+    
+    }
+    async onChangeEmpresaSelect(empresa: any){
+        // this.empresaSelectOld = empresa
+        // console.log(empresa, this.empresaSelect);
+        // await this.sesionService.setEmpresa(empresa);
+        // await this.sesionService.getEmpresa()
+        // this.ngOnInit();
+
+        // console.log(empresa, this.empresaSelect)
+        // console.log(this.empresaSelect)
+
+        // console.log("sip")
+        // this.empresaSelect = await this.sesionService.getEmpresa()
+        
+        this.confirmationService.confirm({
+            header: '¿Cambiar a la empresa "' + empresa.value.nombreComercial + '"?',
+            message: 'Esto reiniciará la sesión actual, ¿Desea continuar?',
+            accept: async() => {
+                await this.sesionService.setEmpresa(empresa);	
+                console.log(await this.sesionService.getEmpresa(),this.empresaSelect)
+                await location.reload();
+                await this.router.navigate([('/app/home')]);
+                // await location.reload();
+            },
+            reject: () => {
+                this.empresaSelect = this.empresaSelectOld;
+            },
+        });		
+    }
+
 }

@@ -10,6 +10,9 @@ import {MenubarModule} from 'primeng/menubar';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {MenuModule} from 'primeng/menu';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+import {PanelModule} from 'primeng/panel';
 
 const modules = [
   ToastModule,
@@ -20,7 +23,9 @@ const modules = [
   MenubarModule,
   PanelMenuModule,
   BreadcrumbModule,
-  MenuModule
+  MenuModule,
+  ConfirmDialogModule,
+  PanelModule
 ];
 
 @NgModule({
@@ -33,7 +38,8 @@ const modules = [
     modules
   ],
   providers: [
-    MessageService
+    MessageService,
+    ConfirmationService
   ]
 })
 export class PrimengModule { }

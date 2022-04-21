@@ -9,14 +9,23 @@ export class ConfiguracionGeneralService extends ServiceCRUD<ConfiguracionGenera
 
   obtenerPorEmpresa() {
     return new Promise(async (resolve, reject) => {
-        this.httpInt.get(this.end_point + 'empresa')
-            .subscribe(
-                res => resolve(res),
-                err => {
-                    this.manageError(err);
-                    reject(err);
-                }
-            )
+        await this.httpInt.get(this.end_point + 'empresa')
+        .subscribe(res => {
+            console.log(res)   
+            resolve(res)
+        },
+        err => {
+            this.manageError(err);
+            console.log(err) 
+            reject(err);
+        })
+            // .subscribe(
+            //     res => resolve(res),
+            //     err => {
+            //         this.manageError(err);
+            //         reject(err);
+            //     }
+            // )
     });
 }
 

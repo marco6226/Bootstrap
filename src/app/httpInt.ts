@@ -12,6 +12,8 @@ export class HttpInt {
     ){}
 
     get(url: string, headers?: HttpHeaders): Observable<Object> {
+        console.log(this.getRequestHeaders(headers));
+        
         return this.http.get(url, this.getRequestHeaders(headers));
     }
 

@@ -1,4 +1,4 @@
-
+<p-confirmDialog icon="fa fa-question-circle" [style]="{'width':'250px'}" [closable]="false" acceptLabel="Si"></p-confirmDialog>
 <header>
     
 
@@ -22,21 +22,14 @@
     <button mat-icon-button class="example-icon" (click)="onLogout()" aria-label="Example icon-button with share icon">
       <mat-icon>share</mat-icon>
     </button>
-    <mat-form-field appearance="standard" style="width: 10rem !important;">
+    <mat-form-field>
       <mat-label>Compañia</mat-label>
-      <mat-select [value]="empresaSelect?.nombreComercial">
-        <mat-option *ngFor="let empresa of empresasItems" [value]="empresaSelect?.nombreComercial">
-          {{empresa.label}}
-        </mat-option>
+      <!-- <mat-select [value]="empresaSelect?.nombreComercial" (selectionChange)="onChangeEmpresa()"> -->
+      <mat-select [value]="empresaSelect!" name="Empresa">
+        <mat-option *ngFor="let empresa of empresasItems" (click)="onChangeEmpresaSelect(empresa)" [value]="empresaSelect">{{empresa.label}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <!-- <h1>{{this.getEmpresa?.nombreComercial}}</h1>
-    <mat-form-field appearance="fill">
-      <mat-label>Cars</mat-label>
-      <select matNativeControl>        
-        <option *ngFor="let empresa of empresasItems" [value]="empresa.value" >volvo</option>     
-      </select>
-    </mat-form-field> -->
+  
   </mat-toolbar>
 
 
@@ -57,177 +50,6 @@ position: fixed;">
       <div style="height: 0.3rem; width: 100%; background: var(--white); margin-bottom: 0.6rem;"></div>
       
       
-
-      <!-- <mat-button-toggle-group vertical="true" name="fontStyle" aria-label="Font Style" >
-        <mat-button-toggle value="dashboard" (click)="dashboard()">Dashboard</mat-button-toggle>
-      
-        <mat-button-toggle value="administracion" (click)="administracion()">Administración</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showAdministracion">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">Perfiles</mat-button-toggle>
-              <mat-button-toggle class="submenu">Permisos</mat-button-toggle>
-              <mat-button-toggle class="submenu">Usuarios</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="empresa" (click)="empresa()">Empresa</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showEmpresa">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">Información Empresa</mat-button-toggle>
-              <mat-button-toggle class="submenu">Contexto Organización</mat-button-toggle>
-              <mat-button-toggle class="submenu">Tipos área</mat-button-toggle>
-              <mat-button-toggle class="submenu">Organización</mat-button-toggle>
-              <mat-button-toggle class="submenu">Cargos</mat-button-toggle>
-              <mat-button-toggle class="submenu">Talento humano</mat-button-toggle>
-              <mat-button-toggle class="submenu">Evaluación desempeño</mat-button-toggle>
-              <mat-button-toggle class="submenu">Cargue datos</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="contratistas" (click)="contratistas()">Contratistas</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showContratistas">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">Administración</mat-button-toggle>
-              <mat-button-toggle class="submenu">Seguimiento</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="seguimientoMedicos" (click)="seguimientoMedicos()">Seguimiento Casos Médicos</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showMedicos">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">Creación de seguimiento caso</mat-button-toggle>
-              <mat-button-toggle class="submenu">listado de seguimientos</mat-button-toggle>
-              <mat-button-toggle class="submenu">Permisos</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="autoevaluacion" (click)="autoevaluacion()">Autoevaluación</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showAutoevaluacion">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">Elaboración SGE</mat-button-toggle>
-              <mat-button-toggle class="submenu">Sistema de Gestión</mat-button-toggle>
-              <mat-button-toggle class="submenu">Consulta Evaluación</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="IPECR" (click)="IPECR()">IPECR</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showIPECR">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">Para</mat-button-toggle>
-              <mat-button-toggle class="submenu">#2</mat-button-toggle>
-              <mat-button-toggle class="submenu">#3</mat-button-toggle>
-              <mat-button-toggle class="submenu">#4</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="inspeccion" (click)="inspeccion()">Inspección</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showInspeccion">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">#1</mat-button-toggle>
-              <mat-button-toggle class="submenu">#2</mat-button-toggle>
-              <mat-button-toggle class="submenu">#3</mat-button-toggle>
-              <mat-button-toggle class="submenu">#4</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="condiciones" (click)="condiciones()">Reporte Condiciones</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showCondiciones">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">#1</mat-button-toggle>
-              <mat-button-toggle class="submenu">#2</mat-button-toggle>
-              <mat-button-toggle class="submenu">#3</mat-button-toggle>
-              <mat-button-toggle class="submenu">#4</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="reporte" (click)="reporte()">Reporte A/I</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showReporte">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">#1</mat-button-toggle>
-              <mat-button-toggle class="submenu">#2</mat-button-toggle>
-              <mat-button-toggle class="submenu">#3</mat-button-toggle>
-              <mat-button-toggle class="submenu">#4</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="ausentismo" (click)="ausentismo()">Ausentismo</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showAusentismo">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">#1</mat-button-toggle>
-              <mat-button-toggle class="submenu">#2</mat-button-toggle>
-              <mat-button-toggle class="submenu">#3</mat-button-toggle>
-              <mat-button-toggle class="submenu">#4</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="documentada" (click)="documentada()">Información Documentada</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showDocumentada">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">#1</mat-button-toggle>
-              <mat-button-toggle class="submenu">#2</mat-button-toggle>
-              <mat-button-toggle class="submenu">#3</mat-button-toggle>
-              <mat-button-toggle class="submenu">#4</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="seguimiento" (click)="seguimiento()">Seguimiento y Control</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showSeguimiento">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">#1</mat-button-toggle>
-              <mat-button-toggle class="submenu">#2</mat-button-toggle>
-              <mat-button-toggle class="submenu">#3</mat-button-toggle>
-              <mat-button-toggle class="submenu">#4</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="indicadores" (click)="indicadores()">Indicadores</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showIndicadores">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">#1</mat-button-toggle>
-              <mat-button-toggle class="submenu">#2</mat-button-toggle>
-              <mat-button-toggle class="submenu">#3</mat-button-toggle>
-              <mat-button-toggle class="submenu">#4</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-
-        <mat-button-toggle value="actas" (click)="actas()">Actas COPASST</mat-button-toggle>
-        <div class="containerDrawer" *ngIf="showActas">
-          <div>
-            <mat-button-toggle-group vertical="true">
-              <mat-button-toggle class="submenu">#1</mat-button-toggle>
-              <mat-button-toggle class="submenu">#2</mat-button-toggle>
-              <mat-button-toggle class="submenu">#3</mat-button-toggle>
-              <mat-button-toggle class="submenu">#4</mat-button-toggle>
-            </mat-button-toggle-group>            
-          </div>        
-        </div>
-      </mat-button-toggle-group> -->
 
       <mat-accordion >        
         <div *ngFor="let item of items">
@@ -250,40 +72,7 @@ position: fixed;">
         </div>
        
       </mat-accordion>
-<!-- 
-      <mat-accordion>
-        <mat-expansion-panel hideToggle>
-          <mat-expansion-panel-header>
-            <div style="width: 100px; height: 100px; background: red;"></div>
-            <mat-panel-title>
-              This is the expansion title
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <button (click)="ok2()">Hola</button>
-          <p>This is the primary content of the panel.</p>
-        </mat-expansion-panel>
 
-        <mat-expansion-panel hideToggle>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              This is the expansion title
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <button>Hola</button>
-          <p>This is the primary content of the panel.</p>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel hideToggle>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              This is the expansion title
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <button>Hola</button>
-          <p>This is the primary content of the panel.</p>
-        </mat-expansion-panel>
-        
-      </mat-accordion> -->
 
 
     </mat-drawer>
