@@ -31,7 +31,9 @@ export class DashboardComponent implements OnInit, AfterContentInit {
 //   getEmpresa?: Empresa | null;
   
 
-  empresasItems: SelectItem[] = [];
+//   empresasItems: SelectItem[] = [];
+  empresasItems: Empresa[] = [];
+
   empresaSelect?: Empresa | null;
   empresaSelectOld?: Empresa | null;
   usuario: Usuario | null | undefined;
@@ -73,15 +75,17 @@ export class DashboardComponent implements OnInit, AfterContentInit {
   ngAfterContentInit() {
     this.recargarMenu();
   }
-
+  
   async loadItems(empresas: Empresa[]) {
+      
     empresas.forEach(emp => {
-        this.empresasItems.push({ label: emp.nombreComercial, value: emp });
+        // this.empresasItems.push({ label: emp.nombreComercial, value: emp });
+        this.empresasItems.push(emp);
+
     });
     console.log(this.sesionService.getEmpresa())
     if (this.sesionService.getEmpresa() == null) {
-        this.sesionService.setEmpresa(empresas[1]);
-        console.log("hola")
+        this.sesionService.setEmpresa(empresas[0]);
     }
     // this.getEmpresa = this.sesionService.getEmpresa(); 
     // console.log(this.getEmpresa, this.getEmpresa?.nombreComercial)
@@ -383,6 +387,30 @@ export class DashboardComponent implements OnInit, AfterContentInit {
     
     }
     async onChangeEmpresaSelect(empresa: any){
+        // let x: Empresa[]
+        // this.empresaService.findByUsuario(this.usuario?.id).then(
+        //     resp => {
+                
+        //         console.log(resp)
+        //         console.log(this.empresaSelect)
+
+        //         x = <Empresa[]>resp;
+        //         this.empresaSelect = x[2];
+        //         x.forEach(element => {
+        //             console.log(element);
+                    
+        //         });
+
+        //     }
+        // );
+
+        // await this.sesionService.setEmpresa(empresa.value);	
+
+        // this.empresaSelect = this.sesionService.getEmpresa()
+
+        
+        console.log(this.empresaSelect,empresa)
+        this.empresaSelect = empresa
         // this.empresaSelectOld = empresa
         // console.log(empresa, this.empresaSelect);
         // await this.sesionService.setEmpresa(empresa);
@@ -396,14 +424,17 @@ export class DashboardComponent implements OnInit, AfterContentInit {
         // this.empresaSelect = await this.sesionService.getEmpresa()
         
         this.confirmationService.confirm({
-            header: '¿Cambiar a la empresa "' + empresa.value.nombreComercial + '"?',
+            header: '¿Cambiar a la empresa "' + this.empresaSelect?.nombreComercial + '"?',
             message: 'Esto reiniciará la sesión actual, ¿Desea continuar?',
             accept: async() => {
-                await this.sesionService.setEmpresa(empresa);	
+        console.log(this.empresaSelect)
+
+                await this.sesionService.setEmpresa(this.empresaSelect!);	
+        console.log(this.empresaSelect)
+
                 console.log(await this.sesionService.getEmpresa(),this.empresaSelect)
-                await location.reload();
                 await this.router.navigate([('/app/home')]);
-                // await location.reload();
+                await location.reload();
             },
             reject: () => {
                 this.empresaSelect = this.empresaSelectOld;

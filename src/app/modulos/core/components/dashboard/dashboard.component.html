@@ -25,8 +25,8 @@
     <mat-form-field>
       <mat-label>Compañia</mat-label>
       <!-- <mat-select [value]="empresaSelect?.nombreComercial" (selectionChange)="onChangeEmpresa()"> -->
-      <mat-select [value]="empresaSelect!" name="Empresa">
-        <mat-option *ngFor="let empresa of empresasItems" (click)="onChangeEmpresaSelect(empresa)" [value]="empresaSelect">{{empresa.label}}</mat-option>
+      <mat-select [(value)]="empresaSelect" >
+        <mat-option *ngFor="let empresa of empresasItems" (click)="onChangeEmpresaSelect(empresa)" [value]="empresaSelect">{{empresa.nombreComercial}}</mat-option>
       </mat-select>
     </mat-form-field>
   
